@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="sharma.pankaj.newsnow.data.model.Article" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_128sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_marginBottom="4dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                bind:urlToImage="@{model.urlToImage}"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>

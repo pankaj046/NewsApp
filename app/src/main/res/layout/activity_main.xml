@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.ui.MainActivity">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="sharma.pankaj.newsnow.presentation.viewmodels.NewsViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_700">
+
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="@dimen/_8sdp">
+
+            <androidx.appcompat.widget.SearchView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/news_now"
+                android:textSize="@dimen/_16sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/header"
+            android:background="@drawable/top_rounded_bg"
+            android:padding="@dimen/_4sdp">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollable"
+                android:layout_marginBottom="6dp"
+                android:scrollbars="none">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/newsType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:singleLine="true"
+
+                    android:scrollbars="horizontal"
+                    app:selectionRequired="true" />
+            </HorizontalScrollView>
+<!--            app:itemViewModels="@{viewmodel.}"-->
+            <sharma.pankaj.newsnow.comman.RecyclerViewEmptySupport
+                android:id="@+id/newsRecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_below="@id/scrollable"
+                tools:listitem="@layout/news_item_layout"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</layout>
