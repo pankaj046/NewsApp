@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import sharma.pankaj.newsnow.R
+import sharma.pankaj.newsnow.comman.NewsItemClickListener
 import sharma.pankaj.newsnow.data.model.Article
 import sharma.pankaj.newsnow.databinding.NewsItemLayoutBinding
 import javax.inject.Inject
@@ -14,6 +15,7 @@ import javax.inject.Singleton
 class NewsAdapter @Inject constructor() : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     private var list: MutableList<Article> = mutableListOf()
+    private var listener: NewsItemClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -24,7 +26,7 @@ class NewsAdapter @Inject constructor() : RecyclerView.Adapter<NewsAdapter.ViewH
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding(list[holder.adapterPosition])
-
+        holder.itemView.setOnClickListener { listener?.onItemLister(list[holder.adapterPosition].url) }
     }
 
     override fun getItemCount(): Int = list.size
@@ -39,5 +41,9 @@ class NewsAdapter @Inject constructor() : RecyclerView.Adapter<NewsAdapter.ViewH
     fun updateNews(list: MutableList<Article>) {
         this.list = list
         notifyDataSetChanged()
+    }
+
+    fun addListener(listener: NewsItemClickListener) {
+        this.listener = listener
     }
 }

@@ -14,17 +14,36 @@
         android:layout_height="@dimen/_128sdp"
         app:cardCornerRadius="@dimen/_8sdp"
         android:layout_marginBottom="4dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            bind:urlToImage="@{model.urlToImage}"
+            android:contentDescription="@string/app_name" />
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
+            android:layout_height="match_parent"
+            android:padding="@dimen/_8sdp"
+            android:background="@drawable/gredient_bg">
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                bind:urlToImage="@{model.urlToImage}"
-                android:contentDescription="@string/app_name" />
+                android:layout_height="wrap_content"
+                android:layout_above="@id/title"
+                android:text="@{model.author}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8sdp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_10sdp"
+                android:id="@+id/title"
+                android:textColor="@color/white"
+                android:layout_alignParentBottom="true"
+                android:text="@{model.title}"/>
+
         </RelativeLayout>
+
     </com.google.android.material.card.MaterialCardView>
 
 

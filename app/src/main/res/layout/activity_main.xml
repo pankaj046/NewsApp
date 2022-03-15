@@ -26,12 +26,16 @@
 
             <androidx.appcompat.widget.SearchView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:id="@+id/search"
+                app:theme="@style/AppSearchView"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:id="@+id/title"
+                android:textColor="@color/white"
                 android:text="@string/news_now"
                 android:textSize="@dimen/_16sdp" />
         </RelativeLayout>

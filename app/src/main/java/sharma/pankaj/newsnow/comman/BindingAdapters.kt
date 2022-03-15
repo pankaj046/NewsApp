@@ -9,8 +9,8 @@ import sharma.pankaj.newsnow.R
 @BindingAdapter("urlToImage")
 fun urlToImage(view: ImageView, s: String?) {
     val options = RequestOptions
-        .placeholderOf(R.drawable.ic_launcher_background)
-        .error(R.drawable.ic_launcher_background)
+        .placeholderOf(R.drawable.ic_placeholder)
+        .error(R.drawable.ic_placeholder)
     Glide.with(view).setDefaultRequestOptions(options)
         .load(s ?: "").into(view)
 }
